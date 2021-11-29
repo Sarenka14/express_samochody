@@ -1,0 +1,48 @@
+<div>
+    <form action="/handle">
+        <h1>Dane pojazdu:</h1>
+        <table>
+            <tr>
+                <td>Ubezpieczony:<input type="checkbox" name="checkbox1"></input></td>
+            </tr>
+            <tr>
+                <td>Benzyna:<input type="checkbox" name="checkbox2"></input></td>
+            </tr>
+            <tr>
+                <td>Uszkodzony:<input type="checkbox" name="checkbox3"></input></td>
+            </tr>
+            <tr>
+                <td>Napęd 4x4:<input type="checkbox" name="checkbox4"></input></td>
+            </tr>
+        </table>
+        <input type="submit" value="Dodaj">
+    </form>
+</div>
+<div>
+    <h1>Wszystkie pojazdy:</h1>
+    <table>
+        <tr>
+            <td>Ubezpieczony</td>
+            <td>Benzyna</td>
+            <td>Uszkodzony</td>
+            <td>Napęd 4x4</td>
+        </tr>
+        {{#each docsy}}
+        <tr>
+            <td>{{a}}</td>
+            <td>{{b}}</td>
+            <td>{{c}}</td>
+            <td>{{d}}</td>
+            <form>
+                <input type="hidden" name="id" value={{_id}}>
+                <input type="hidden" name="a" value={{a}}>
+                <input type="hidden" name="b" value={{b}}>
+                <input type="hidden" name="c" value={{c}}>
+                <input type="hidden" name="d" value={{d}}>
+                <td><input type="submit" formaction="/delete" value="Delete" onclick="return confirm('Czy usunąć?')"/></td>
+                <td><input type="submit" formaction="/edit" value="Edit"></td>
+            </form>
+        </tr>
+        {{/each}}
+    </table>
+</div>

@@ -1,0 +1,81 @@
+<div>
+    <form action="/handle">
+        <h1>Dane pojazdu:</h1>
+        <table>
+            <tr>
+                <td>Ubezpieczony:<input type="checkbox" name="checkbox1"></input></td>
+            </tr>
+            <tr>
+                <td>Benzyna:<input type="checkbox" name="checkbox2"></input></td>
+            </tr>
+            <tr>
+                <td>Uszkodzony:<input type="checkbox" name="checkbox3"></input></td>
+            </tr>
+            <tr>
+                <td>Napęd 4x4:<input type="checkbox" name="checkbox4"></input></td>
+            </tr>
+        </table>
+        <input type="submit" value="Dodaj">
+    </form>
+</div>
+<div>
+    <h1>Wszystkie pojazdy:</h1>
+    <table>
+        <tr>
+            <td>Ubezpieczony</td>
+            <td>Benzyna</td>
+            <td>Uszkodzony</td>
+            <td>Napęd 4x4</td>
+        </tr>
+        {{#each docsy}}
+        {{#linijka _id @root.id}}
+        <tr>
+            <form>
+            <input type="hidden" name="id" value={{_id}}>
+            <td>
+                <select name="ubezpieczony">
+                    <option value="TAK">TAK</option>
+                    <option value="NIE">NIE</option>
+                    <option value="BRAK DANYCH">BRAK DANYCH</option>
+                </select>
+            </td>
+            <td>
+                <select name="benzyna">
+                    <option value="TAK">TAK</option>
+                    <option value="NIE">NIE</option>
+                    <option value="BRAK DANYCH">BRAK DANYCH</option>
+                </select>
+            </td>
+            <td>
+                <select name="uszkodzony">
+                    <option value="TAK">TAK</option>
+                    <option value="NIE">NIE</option>
+                    <option value="BRAK DANYCH">BRAK DANYCH</option>
+                </select>
+            </td>
+            <td>
+                <select name="naped4x4">
+                    <option value="TAK">TAK</option>
+                    <option value="NIE">NIE</option>
+                    <option value="BRAK DANYCH">BRAK DANYCH</option>
+                </select>
+            </td>
+                <td><input type="submit" formaction="/update" value="Update"/></td>
+                <td><input type="submit" formaction="/" value="Cancel"></td>
+            </form>
+        </tr>
+        {{else}}
+            <tr>
+                <td>{{a}}</td>
+                <td>{{b}}</td>
+                <td>{{c}}</td>
+                <td>{{d}}</td>
+                <form>
+                    <td><input type="submit" formaction="/delete" value="Delete" onclick="return confirm('Czy usunąć?')"/></td>
+                    <td><input type="submit" formaction="/edit" value="Edit"></td>
+                </form>
+            </tr>
+        {{/linijka}}
+        {{/each}}
+    </table>
+</div>

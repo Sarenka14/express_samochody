@@ -1,0 +1,16 @@
+{
+  "name": "psarna-samochody",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server2.js",
+  "dependencies": {
+    "express-handlebars": "^5.3.5",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "psarna",
+  "license": "ISC"
+}
