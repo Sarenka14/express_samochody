@@ -4,6 +4,7 @@
   "description": "",
   "main": "server2.js",
   "dependencies": {
+    "express": "^4.17.1",
     "express-handlebars": "^5.3.5",
     "nedb": "^1.8.0"
   },
